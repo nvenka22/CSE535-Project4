@@ -1,13 +1,19 @@
 package com.mobilecomputing.project4;
-
+import com.mobilecomputing.project4.pojo.Symptoms;
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+import java.util.ArrayList;
+
+
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.core.view.WindowCompat;
@@ -21,21 +27,42 @@ import com.mobilecomputing.project4.pojo.DietRecommendationCallback;
 import com.mobilecomputing.project4.databinding.ActivityMainBinding;
 import com.mobilecomputing.project4.pojo.DietResponseWrapper;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+
+    private EditText SymptomName;
+
+    private EditText SymptomSeverity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //button for recording video for measuring heart rate
-        Button btn = (Button) findViewById(R.id.btn);
+        SymptomName=findViewById(R.id.editTextSymptomName);
+        SymptomSeverity=findViewById(R.id.editTextSymptomSeverity);
 
+        List<Symptoms> symlist= new ArrayList<>();
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        public void OnSubmitSymptom(){
+
+            String symName=SymptomName.getText().toString();
+            String symSeverity=SymptomSeverity.getText().toString();
+            Symptoms Sym=new Symptoms();
+            Sym.setSeverity(symSeverity);
+            Sym.setSymptom(symName);
+            symlist.add(Sym);
+
+        }
+
+        Button buttonGetDiet = (Button)findViewById(R.id.buttonGetDiet);
+
+        buttonGetDiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
