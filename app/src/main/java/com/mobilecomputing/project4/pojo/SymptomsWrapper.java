@@ -1,5 +1,6 @@
 package com.mobilecomputing.project4.pojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SymptomsWrapper
@@ -7,7 +8,11 @@ public class SymptomsWrapper
     private HealthData healthData;
     private List<Symptoms> symptomsList;
 
-    public List<Symptoms> getSymptomsList() {
+
+    public SymptomsWrapper(){
+        symptomsList = new ArrayList<>();
+    }
+    public List<Symptoms>  getSymptomsList() {
         return symptomsList;
     }
 
@@ -15,5 +20,11 @@ public class SymptomsWrapper
         this.symptomsList = symptomsList;
     }
 
+    public HealthData getHealthData() {
+        return healthData;
+    }
 
+    public void setHealthData(HealthData healthData) {
+        this.healthData = healthData;
+    }
 }
