@@ -8,7 +8,7 @@ The project Instructions is
 3) Run the Symptom_Mc.ipynb notebook: Building the Multi Layer Perceptron model that will predict the "possbile" diseases based on the user symptoms. 
 4) (continuation of 3rd step) We then use ClinicalBert, Embedding to find the most related diseases to the one predicted by the model, and recommend multiple food items based on the closest diseases to the symptoms and user's biological data. 
 
-Libraries needed (with their corresponding codes ) are: 
+Libraries needed (with their corresponding codes) are: 
 
 import pandas as pd
 import numpy as np
