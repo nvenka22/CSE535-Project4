@@ -64,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(DietResponseWrapper dietResponseWrapper) {
                         //UI display code would be here.
-                        System.out.println(dietResponseWrapper.getDietOptions());
+                        System.out.println("The recommended meal type is "+dietResponseWrapper.getDiet());
                     }
-                },symptomsWrapper);
+                },symptomsWrapper,getApplicationContext());
             }
         });
     }
