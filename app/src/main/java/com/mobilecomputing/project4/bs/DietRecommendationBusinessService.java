@@ -33,10 +33,10 @@ public class DietRecommendationBusinessService
                     //Serialize Input into the SymptomsWrapper class before calling getResponse, which is the structure Flask API would expect
                     response = getResponse(symptomsWrapper);
                     //Mock response
-                    response.setRes("API Call Complete");
+                    response.getDietOptions().add("Dummy response, API call successfull");
                     //Deserialize output into pojo, ie, the DietResponseWrapper class to process on the UI.
                     callback.onComplete(response);
-                    //This would be added while integrating the code base
+                    //This below line of code would be added while integrating the code base
                     //return response
 
                 } catch (InterruptedException e) {

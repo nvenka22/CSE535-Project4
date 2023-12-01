@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(DietResponseWrapper dietResponseWrapper) {
                         //UI display code would be here.
-                        System.out.println(dietResponseWrapper.getRes());
+                        System.out.println(dietResponseWrapper.getDietOptions());
                     }
                 },symptomsWrapper);
             }
