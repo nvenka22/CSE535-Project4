@@ -25,49 +25,23 @@ import torch
 import pandas as pd
 from scipy.spatial.distance import cosine
 
-df = pd.read_csv('symp_dis.csv')
-df = shuffle(df,random_state=42)
-for col in df.columns:
-    df[col] = df[col].str.replace('_',' ')
-cols = df.columns
-data = df[cols].values.flatten()
+symp_dis_df = pd.read_csv('symp_dis.csv')
+symp_dis_df = shuffle(symp_dis_df,random_state=42)
+for col in symp_dis_df.columns:
+    symp_dis_df[col] = symp_dis_df[col].str.replace('_',' ')
+cols = symp_dis_df.columns
+data = symp_dis_df[cols].values.flatten()
 
 s = pd.Series(data)
 s = s.str.strip()
-s = s.values.reshape(df.shape)
+s = s.values.reshape(symp_dis_df.shape)
 
-df = pd.DataFrame(s, columns=df.columns)
+df = pd.DataFrame(s, columns=symp_dis_df.columns)
 df = df.fillna(0)
 df1 = pd.read_csv('Symptom-severity.csv')
 df1['Symptom'] = df1['Symptom'].str.replace('_',' ')
 
-# symptoms = df1['Symptom'].unique()
 
-# vals = df.values
-# for i in range(len(symptoms)):
-#     vals[vals == symptoms[i]] = df1[df1['Symptom'] == symptoms[i]]['weight'].values[0]
-
-# d = pd.DataFrame(vals, columns=cols)
-
-# d = d.replace('dischromic  patches', 0)
-# d = d.replace('spotting  urination',0)
-# df = d.replace('foul smell of urine',0)
-# data = df.iloc[:,1:].values
-# labels = df['Disease'].values
-# x_train, x_test, y_train, y_test = train_test_split(data, labels, train_size = 0.8,random_state=42)
-# print(x_train.shape, x_test.shape, y_train.shape, y_test.shape)
-# from sklearn.neural_network import MLPClassifier
-# clf = MLPClassifier(hidden_layer_sizes=(6,5),
-#                     random_state=5,
-#                     verbose=True,
-#                     learning_rate_init=0.01)
-# clf.fit(x_train, y_train)
-# # Make prediction on test dataset
-# ypred=clf.predict(x_test)
-
-# # Calcuate accuracy
-# accuracy_score(y_test,ypred)
-# print('F1-score% =', f1_score(y_test, ypred, average='macro')*100, '|', 'Accuracy% =', accuracy_score(y_test, ypred)*100)
 
 nlp = spacy.load('en_core_sci_lg')
 
@@ -143,11 +117,13 @@ def home():
         print("Actual Symptom Severity: ", actual_symps_sev)
 
 
-        target_size = 17
+        target_size = 10
 
         # Extend the list with zeros until it reaches the target size
         while len(actual_symps_sev) < target_size:
             actual_symps_sev.append(0)
+
+        print(actual_symps_sev)
 
         # random.shuffle(actual_symps_sev)
         print("Actual Symptom weight: ", actual_symps_sev)
@@ -157,8 +133,91 @@ def home():
         ypred_test=clf.predict(test_sample)
         print(ypred_test)
 
+        
+        disease_food = pd.read_csv('dataset.csv')
+        disease1 = str(ypred_test[0])
+        print(type(disease1))
+        print(type(disease_food.at[0, 'Disease']))
+        # Process for finding similarities
 
-    return json.dumps(ypred_test.tolist())
+        max_sim = 0
+        max_sim_idx = 0
+
+        df = pd.DataFrame()
+        df = disease_food
+        simScoreList = []
+
+        for i in range(len(disease_food)):
+            disease_food_tab = get_embedding(disease_food.at[i, 'Disease'])
+            # print(type(disease1))
+            disease_embedding = get_embedding(disease1)
+            score = calculate_similarity(disease_embedding, disease_food_tab)
+            simScoreList.append(score)
+
+        df['SimScore'] = simScoreList
+
+        print("Actual Disease: ", disease1)
+
+        def recommend_diet(age, weight, heart_rate):
+            # Define threshold ranges
+            age_groups = {'young': [0, 30], 'middle': [31, 60], 'senior': [61, float('inf')]}
+            weight_categories = {'underweight': [0, 50], 'normal': [51, 80], 'overweight': [81, 100], 'obese': [101, float('inf')]}
+            heart_rate_zones = {'bradycardia': [0, 60], 'normal': [61, 100], 'elevated': [101, 140], 'tachycardia': [141, float('inf')]}
+
+            # Multi-conditional logic for diet recommendation
+            diets = []
+            
+            # Age-based conditions
+            if age_groups['young'][0] <= age <= age_groups['young'][1]:
+                if weight <= weight_categories['underweight'][1]:
+                    diets += ['high_calorie_diet', 'high_protein_diet']
+                elif weight <= weight_categories['normal'][1]:
+                    diets += ['balanced_omni_diet', 'paleo_diet']
+                else:
+                    diets += ['low_carb_diet', 'ketogenic_diet']
+
+            elif age_groups['middle'][0] <= age <= age_groups['middle'][1]:
+                if weight_categories['normal'][0] <= weight <= weight_categories['normal'][1]:
+                    diets += ['vegan_diet', 'type_a_diet']
+                elif weight <= weight_categories['overweight'][1]:
+                    diets += ['Mediterranean_diet']
+                else:
+                    diets += ['low_fat_diet']
+
+            elif age_groups['senior'][0] <= age:
+                if weight > weight_categories['obese'][0]:
+                    diets += ['low_carb_diet']
+                else:
+                    diets += ['Mediterranean_diet', 'alkaline_diet']
+
+            # Heart rate-based conditions
+            if heart_rate <= heart_rate_zones['bradycardia'][1]:
+                diets += ['high_fiber_diet']
+            elif heart_rate <= heart_rate_zones['normal'][1]:
+                diets += ['omni_diet']
+            elif heart_rate <= heart_rate_zones['elevated'][1]:
+                diets += ['DASH_diet', 'low_sodium_diet']
+            elif heart_rate > heart_rate_zones['tachycardia'][0]:
+                diets += ['DASH_diet']
+
+            # Remove duplicates and return the list of recommended diets
+            return list(set(diets))
+
+        # Example usage
+        user_age = 45
+        user_weight = 75
+        user_heart_rate = 85
+
+        diet_recommendations = recommend_diet(user_age, user_weight, user_heart_rate)
+        print(f'Recommended diets: {diet_recommendations}')
+        filtered_df = df[df['Diet'].apply(lambda diets: any(diet in diets for diet in diet_recommendations))].nlargest(3, 'SimScore')
+
+
+
+        
+
+
+    return json.dumps(filtered_df.to_json('Testflask.json', orient='records', lines=True))
 
 if __name__ == '__main__':
     app.run(debug=True)
