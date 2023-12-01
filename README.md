@@ -13,7 +13,8 @@ The project flow is
 INSTRUCTIONS
 
 1) clone the repository and run the flask app ensuring the below libraries are present in the machine.
-2) Open Postman/ Hit the flask route with 'Symptoms' Json, and The Flask app will return the Json Data of the diets we recommend based on symptoms and biological data. 
+2) The Flask application will automatically load the '.joblib' model that is being created during the machine learning modelling. The ML model is present in the 'mlp_classifier.joblib', which is then directly used by the Flask App to predict the dieases and then use the closest possible medical conditions based on Clinical BERT to recommend the diet. 
+3) Open Postman/ Hit the flask route with 'Symptoms' Json, and The Flask app will return the Json Data of the diets we recommend based on symptoms and biological data. 
 
 Libraries needed (with their corresponding codes) are: 
 
