@@ -40,4 +40,11 @@
         android:layout_height="wrap_content"
         android:text="Get Diet"/>
 
+    <Button
+        android:id="@+id/LoginPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"/>
+
+
 </LinearLayout>

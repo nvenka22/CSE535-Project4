@@ -35,15 +35,15 @@ public class RegisterActivity extends AppCompatActivity {
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
                 String ageStr = Age.getText().toString();
-                String Diabetes = Diabetes.getText().toString();
-                String VNV = VNV.getText().toString();
+                String Diabe = Diabetes.getText().toString();
+                String VN = VNV.getText().toString();
                 String WeightStr = Weight.getText().toString();
                 String HeightStr = Height.getText().toString();
                 int Age=Integer.parseInt(ageStr);
                 int Weight=Integer.parseInt(WeightStr);
                 int Height=Integer.parseInt(HeightStr);
 
-                Boolean insert = DB.insertuserData(user,pass,Age,Height,Weight,Diabetes,VNV);
+                Boolean insert = DB.insertuserData(user,pass,Age,Height,Weight,Diabe,VN);
                 if(insert==true) {
                     Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                 }
@@ -56,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-            }
+            });
 
 
     }

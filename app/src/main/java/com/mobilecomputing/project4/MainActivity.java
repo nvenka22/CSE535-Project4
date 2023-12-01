@@ -1,5 +1,7 @@
 package com.mobilecomputing.project4;
 import com.mobilecomputing.project4.pojo.Symptoms;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -44,21 +46,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SymptomName=findViewById(R.id.editTextSymptomName);
-        SymptomSeverity=findViewById(R.id.editTextSymptomSeverity);
+        Button LoginButton = (Button)findViewById(R.id.LoginPage);
 
-        List<Symptoms> symlist= new ArrayList<>();
+        LoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent int2 = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(int2);
 
-        public void OnSubmitSymptom(){
+            }
+            });
 
-            String symName=SymptomName.getText().toString();
-            String symSeverity=SymptomSeverity.getText().toString();
-            Symptoms Sym=new Symptoms();
-            Sym.setSeverity(symSeverity);
-            Sym.setSymptom(symName);
-            symlist.add(Sym);
 
-        }
+
+
+
 
         Button buttonGetDiet = (Button)findViewById(R.id.buttonGetDiet);
 
@@ -78,6 +80,20 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    public void OnSubmitSymptom(){
+        SymptomName=findViewById(R.id.editTextSymptomName);
+        SymptomSeverity=findViewById(R.id.editTextSymptomSeverity);
+
+        List<Symptoms> symlist= new ArrayList<>();
+        String symName=SymptomName.getText().toString();
+        String symSeverity=SymptomSeverity.getText().toString();
+        Symptoms Sym=new Symptoms();
+        Sym.setSeverity(symSeverity);
+        Sym.setSymptom(symName);
+        symlist.add(Sym);
+
     }
 
 
