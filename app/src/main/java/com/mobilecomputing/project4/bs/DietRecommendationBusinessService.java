@@ -50,7 +50,7 @@ public class DietRecommendationBusinessService
     private DietResponseWrapper getResponse(SymptomsWrapper symptomsWrapper) throws InterruptedException {
         System.out.println("In getResponse");
         String payload=null; // Payload variable initialization
-        String apiUrl = ""; // Would be changed once the ML model has been hosted.
+        String apiUrl = "localhost:8080/mock-api/get-diet-recommendations"; // Would be changed once the ML model has been hosted on a server. This is to enable local testing
         String apiResponse="";//Mock API response string, until integration
         //API Call method here.
         Thread.sleep(5000); //To mock API calls for testing
