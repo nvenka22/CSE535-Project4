@@ -6,7 +6,8 @@ The project Instructions is
 1) Run the Symptoms_disease_scraper.ipynb notebook. Data Collection (using tools like BS4 to scrape the data of various symptoms and their corresponding diseases reported by users) 
 2) run the processing.ipynb notebook. Utilzing the data to preprocess, feature engineering using Random Forest Estimator, and finally sending the data with Diseses, and the user reported symptoms (top 10 based on the statistical significance provided by Random Forest Estimator) based on the importance of each symptom given by the symptom severity scoured from CDC.gov. 
 3) Run the Symptom_Mc.ipynb notebook: Building the Multi Layer Perceptron model that will predict the "possbile" diseases based on the user symptoms. 
-4) (continuation of 3rd step) We then use ClinicalBert, Embedding to find the most related diseases to the one predicted by the model, and recommend multiple food items based on the closest diseases to the symptoms and user's biological data. 
+4) (continuation of 3rd step) We then use ClinicalBert, Embedding to find the most related diseases to the one predicted by the model, and recommend multiple food items based on the closest diseases to the symptoms and user's biological data.
+5) Run the flask app in Vscode or any editor of choice. Open Postman to send symptoms json in the raw, and wait for the response. The flask app when run on a local machine takes ~2 mins to return the final diet recommendation json which is then utilized by the backend to process and forward it to the UI where it is further processed. 
 
 Libraries needed (with their corresponding codes) are: 
 
