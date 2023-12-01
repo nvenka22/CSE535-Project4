@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background_gradient">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#9370DB">
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_details"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="16dp"
+        android:text="@string/name_john_doe"
+        android:textSize="18sp"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_marginTop="8dp"
+        android:text="@string/email_john_example_com"
+        android:textSize="18sp"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/tvWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvEmail"
+        android:layout_marginTop="8dp"
+        android:text="@string/weight_70_kg"
+        android:textSize="18sp"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/tvAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvWeight"
+        android:layout_marginTop="8dp"
+        android:text="@string/age_30_years"
+        android:textSize="18sp"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/tvHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvAge"
+        android:layout_marginTop="8dp"
+        android:text="@string/height_175_cm"
+        android:textSize="18sp"
+        android:textColor="#333333" />
+
+    <CheckBox
+        android:id="@+id/checkBoxDates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvHeight"
+        android:layout_marginTop="16dp"
+        android:text="@string/dates_option" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupDiet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/checkBoxDates"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButtonVeg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vegetarian" />
+
+        <RadioButton
+            android:id="@+id/radioButtonNonVeg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/non_vegetarian" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="116dp"
+        android:layout_height="67dp"
+        android:layout_below="@id/radioGroupDiet"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="157dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_background_gradient"
+        android:src="@drawable/profile1s"
+        android:text="@string/back"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</RelativeLayout>
