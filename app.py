@@ -1,24 +1,14 @@
 from flask import Flask, redirect, render_template, request, session, url_for, jsonify
 import spacy
-import scispacy
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split,KFold,cross_val_score,GridSearchCV
 from sklearn.svm import SVC
 import sklearn.metrics
 import seaborn as sns
 from sklearn.utils import shuffle
-from sklearn.linear_model import LogisticRegression, Perceptron, RidgeClassifier, SGDClassifier
-from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, ExtraTreesClassifier
-from sklearn.ensemble import BaggingClassifier, AdaBoostClassifier, VotingClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.tree import DecisionTreeClassifier
-from sklearn import metrics
 import joblib
 from joblib import load, dump
-from sklearn.metrics import accuracy_score, f1_score
 import json
 from transformers import AutoTokenizer, AutoModel
 import torch
@@ -53,25 +43,6 @@ def home():
         json_data = request.get_json()
         print(json_data['symptoms'])
         symps = json_data['symptoms']
-        # symps = ['stomach ache','headache', 'fever', 'cold']
-        # actual_symps = []
-        # actual_symps_sev = []
-        # max_sim=0
-        # max_sim_idx = 0
-        # for s in symps:
-        #     for i in range(0, len(df1)):
-        #         tmp_text = nlp(df1.at[i, 'Symptom'])
-        #         tmp_text1 = nlp(s)
-        #         score = tmp_text1.similarity(tmp_text)
-        #         if(max_sim < score):
-        #             max_sim = score
-        #             max_sim_idx = i
-        #     actual_symps.append(df1.at[max_sim_idx, 'Symptom'])
-        #     actual_symps_sev.append(df1.at[max_sim_idx, 'weight'])
-        #     max_sim=0
-        #     max_sim_idx = 0
-        # print("Actual Symptoms: ", actual_symps)
-        # Load ClinicalBERT
         tokenizer = AutoTokenizer.from_pretrained("emilyalsentzer/Bio_ClinicalBERT")
         model = AutoModel.from_pretrained("emilyalsentzer/Bio_ClinicalBERT")
 
@@ -212,12 +183,8 @@ def home():
         print(f'Recommended diets: {diet_recommendations}')
         filtered_df = df[df['Diet'].apply(lambda diets: any(diet in diets for diet in diet_recommendations))].nlargest(3, 'SimScore')
 
-
-
-        
-
-
-    return json.dumps(filtered_df.to_json('Testflask.json', orient='records', lines=True))
+    # return json.dumps(filtered_df.to_json('Testflask.json', orient='records', lines=True))
+    return json.dumps(filtered_df.to_json(orient='records', lines=True))
 
 if __name__ == '__main__':
     app.run(debug=True)
