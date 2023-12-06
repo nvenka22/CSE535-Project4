@@ -1,13 +1,21 @@
 package com.mobilecomputing.project4;
+import com.mobilecomputing.project4.pojo.Symptoms;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+import java.util.ArrayList;
+
+
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.core.view.WindowCompat;
@@ -27,10 +35,17 @@ import com.mobilecomputing.project4.pojo.SymptomsWrapper;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+
+    private EditText SymptomName;
+
+    private EditText SymptomSeverity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +54,25 @@ public class MainActivity extends AppCompatActivity {
 
         //button for triggering the API calls on my component
         Button btn = (Button) findViewById(R.id.btn);
+        Button LoginButton = (Button)findViewById(R.id.LoginPage);
+
+        LoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent int2 = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(int2);
+
+            }
+            });
 
 
-        btn.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+        Button buttonGetDiet = (Button)findViewById(R.id.buttonGetDiet);
+
+        buttonGetDiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -101,6 +132,18 @@ public class MainActivity extends AppCompatActivity {
 
         if(alcohol!=null)
                 healthData.setAlcoholConsumption(alcohol);
+    public void OnSubmitSymptom(){
+        SymptomName=findViewById(R.id.editTextSymptomName);
+        SymptomSeverity=findViewById(R.id.editTextSymptomSeverity);
+
+        List<Symptoms> symlist= new ArrayList<>();
+        String symName=SymptomName.getText().toString();
+        String symSeverity=SymptomSeverity.getText().toString();
+        Symptoms Sym=new Symptoms();
+        Sym.setSeverity(symSeverity);
+        Sym.setSymptom(symName);
+        symlist.add(Sym);
+
     }
 
 
