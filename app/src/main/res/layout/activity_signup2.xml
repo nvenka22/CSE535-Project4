@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/background_gradient"
+    >
+
+    <TextView
+        android:id="@+id/textViewWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/textview_background_gradient"
+        android:text="@string/weight"
+        android:textColor="#333333"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/editTextWeight"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewWeight"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/weight_hint"
+        android:inputType="numberDecimal"
+        android:textColor="#674B88"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textViewHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextWeight"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textview_background_gradient"
+        android:text="@string/height"
+        android:textColor="#333333"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/editTextHeight"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewHeight"
+        android:layout_marginTop="8dp"
+        android:hint="@string/height_hint"
+        android:inputType="numberDecimal"
+        android:textColor="#674B88"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/checkBoxDiabetes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextHeight"
+        android:layout_marginTop="16dp"
+        android:text="@string/do_you_have_diabetes" />
+
+    <CheckBox
+        android:id="@+id/checkBoxVeg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/checkBoxDiabetes"
+        android:layout_marginTop="8dp"
+        android:text="@string/vegetarian" />
+
+    <CheckBox
+        android:id="@+id/checkBoxNonVeg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/checkBoxVeg"
+        android:layout_marginTop="8dp"
+        android:text="@string/non_vegetarian" />
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/checkBoxNonVeg"
+        android:layout_marginTop="137dp"
+        android:background="@drawable/button_background_gradient"
+        android:text="@string/sign_up"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+</RelativeLayout>

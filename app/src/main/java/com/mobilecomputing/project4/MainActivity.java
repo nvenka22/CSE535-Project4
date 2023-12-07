@@ -26,7 +26,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.mobilecomputing.project4.bs.DietRecommendationBusinessService;
 import com.mobilecomputing.project4.pojo.DietRecommendationCallback;
-import com.mobilecomputing.project4.databinding.ActivityMainBinding;
+//import com.mobilecomputing.project4.databinding.ActivityMainBinding;
 import com.mobilecomputing.project4.pojo.DietResponseWrapper;
 
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
+//    private ActivityMainBinding binding;
 
     private EditText SymptomName;
 
@@ -44,21 +44,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
-        Button LoginButton = (Button)findViewById(R.id.loginButton);
-
-        LoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent int2 = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(int2);
-
-            }
-            });
-
-
-
+        Intent int2 = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(int2);
 
 
 //
@@ -96,5 +83,5 @@ public class MainActivity extends AppCompatActivity {
 //
 //    }
 
-
+    }
 }

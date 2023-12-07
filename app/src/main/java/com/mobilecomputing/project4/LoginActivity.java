@@ -15,9 +15,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_main);
+        setContentView(R.layout.activity_login);
 
-        Button RegisterButton = (Button)findViewById(R.id.btnsignup);
+        Button RegisterButton = (Button)findViewById(R.id.signUp);
 
         RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,9 +28,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        username = (EditText) findViewById(R.id.username);
-        password = (EditText) findViewById(R.id.password);
-        btnlogin = (Button) findViewById(R.id.btnsignin);
+        username = (EditText) findViewById(R.id.usernameEditText);
+        password = (EditText) findViewById(R.id.passwordEditText);
+        btnlogin = (Button) findViewById(R.id.loginButton);
         DB = new DBHelper(this);
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                     Boolean checkuserpass = DB.checkusernamepassword(user, pass);
                     if(checkuserpass==true){
                         Toast.makeText(LoginActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
-                        Intent intent  = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent  = new Intent(getApplicationContext(), HomePageActivity.class);
                         startActivity(intent);
                     }else{
                         Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();

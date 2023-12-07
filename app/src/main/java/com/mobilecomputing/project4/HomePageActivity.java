@@ -12,9 +12,9 @@ public class HomePageActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_mainpage);
 
-        Button MoodButton = (Button)findViewById(R.id.btnMood);
+        Button MoodButton = (Button) findViewById(R.id.btnMood);
 
         MoodButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,18 +25,7 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
-        Button MoodButton = (Button)findViewById(R.id.btnMood);
-
-        MoodButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent int1 = new Intent(getApplicationContext(), MoodActivity.class);
-                startActivity(int1);
-
-            }
-        });
-
-        Button SymptomsButton = (Button)findViewById(R.id.btnSymptoms);
+        Button SymptomsButton = (Button) findViewById(R.id.btnSymptoms);
 
         SymptomsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +36,7 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
-        Button WaterButton = (Button)findViewById(R.id.btnWater);
+        Button WaterButton = (Button) findViewById(R.id.btnWater);
 
         WaterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,14 +47,15 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
-        Button MetricsButton = (Button)findViewById(R.id.btnMetrics);
+        Button MetricsButton = (Button) findViewById(R.id.btnMetrics);
 
-        MoodButton.setOnClickListener(new View.OnClickListener() {
+        MetricsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent int4 = new Intent(getApplicationContext(), MoodActivity.class);
+                Intent int4 = new Intent(getApplicationContext(), MetricsActivity.class);
                 startActivity(int4);
 
             }
         });
+    }
 }

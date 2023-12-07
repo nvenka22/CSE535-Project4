@@ -17,6 +17,7 @@
 
         <activity
             android:name="com.mobilecomputing.project4.MainActivity"
+            android:theme="@style/Theme.AppCompat"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,9 +26,31 @@
         </activity>
         <activity
             android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat"
             android:exported="true" />
         <activity
             android:name=".RegisterActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:exported="true" />
+        <activity
+            android:name=".HomePageActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:exported="true" />
+        <activity
+            android:name=".MoodActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:exported="true" />
+        <activity
+            android:name=".MetricsActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:exported="true" />
+        <activity
+            android:name=".SymptomsActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:exported="true" />
+        <activity
+            android:name=".WaterActivity"
+            android:theme="@style/Theme.AppCompat"
             android:exported="true" />
     </application>
 

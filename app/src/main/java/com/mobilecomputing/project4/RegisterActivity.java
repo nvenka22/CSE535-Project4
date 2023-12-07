@@ -8,25 +8,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.CheckBox;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText username, password,Age,Height,Weight,VNV,Diabetes;
+    EditText username, password,Height,Weight;
+
+    CheckBox diabetes,isveg;
     Button RegisterButton;
     DBHelper DB;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register_main);
+        setContentView(R.layout.activity_signup);
+        username = (EditText) findViewById(R.id.editTextEmail);
+        password = (EditText) findViewById(R.id.editTextPassword);
+        Weight = (EditText) findViewById(R.id.editTextWeight);
+        Height = (EditText) findViewById(R.id.editTextHeight);
+        diabetes = findViewById(R.id.checkBoxDiabetes);
+        isveg = findViewById(R.id.checkBoxVeg);
 
-        username = (EditText) findViewById(R.id.username);
-        password = (EditText) findViewById(R.id.password);
-        Age = (EditText) findViewById(R.id.Age);
-        Weight = (EditText) findViewById(R.id.Weight);
-        Height = (EditText) findViewById(R.id.Height);
-        Diabetes = (EditText) findViewById(R.id.Diabetes);
-        VNV = (EditText) findViewById(R.id.VNV);
-        RegisterButton = (Button) findViewById(R.id.RegisterButton);
+
+        RegisterButton = (Button) findViewById(R.id.buttonSignUp);
         DB = new DBHelper(this);
 
         RegisterButton.setOnClickListener(new View.OnClickListener() {
@@ -34,24 +37,44 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
-                String ageStr = Age.getText().toString();
-                String Diabe = Diabetes.getText().toString();
-                String VN = VNV.getText().toString();
+
                 String WeightStr = Weight.getText().toString();
                 String HeightStr = Height.getText().toString();
-                int Age=Integer.parseInt(ageStr);
+
                 int Weight=Integer.parseInt(WeightStr);
                 int Height=Integer.parseInt(HeightStr);
+                String diabete="";
+                String isvege="";
 
-                Boolean insert = DB.insertuserData(user,pass,Age,Height,Weight,Diabe,VN);
+                if (diabetes.isChecked()) {
+                    diabete= "Yes";
+
+                }
+                else {
+                    diabete="No";
+                }
+                if (isveg.isChecked()) {
+                    isvege= "Yes";
+
+                }
+                else {
+                    isvege="No";
+                }
+
+                Boolean insert = DB.insertuserData(user,pass,Height,Weight,diabete,isvege);
                 if(insert==true) {
                     Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+
                 }
                 else
                 {
                     Toast.makeText(RegisterActivity.this, "Enter Fields Properly", Toast.LENGTH_SHORT).show();
                 }
             }
+
+
+
+
 
 
 
