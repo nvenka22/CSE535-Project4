@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background3_gardient">
+
+    <ImageButton
+        android:id="@+id/btnHappy"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="458dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/happy"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/btnSad"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="34dp"
+        android:layout_marginBottom="462dp"
+        android:layout_toEndOf="@id/btnHappy"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/sad"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <!-- Second Line -->
+
+    <ImageButton
+        android:id="@+id/btnAngry"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginBottom="459dp"
+        android:layout_toEndOf="@id/btnSad"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/angry"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/btnStress"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignStart="@id/btnHappy"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginBottom="295dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/stressed"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/btnExcited"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="147dp"
+        android:layout_marginBottom="294dp"
+        android:layout_toEndOf="@id/btnStress"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/excited"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnSave2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="158dp"
+        android:layout_marginBottom="221dp"
+        android:background="@drawable/button_background_gradient"
+        android:text="@string/save"
+        android:textColor="#F1F4F7" />
+
+</RelativeLayout>

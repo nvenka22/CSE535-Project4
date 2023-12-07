@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background5_gradient">
+
+    <Spinner
+        android:id="@+id/spinnerSymptoms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/textview_background_gradient"
+        android:minHeight="48dp" />
+
+    <RatingBar
+        android:id="@+id/ratingBarSymptoms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerSymptoms"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:numStars="5"
+        android:stepSize="1.0"
+        android:rating="0.0"
+        android:isIndicator="false" />
+
+    <Button
+        android:id="@+id/btnSaveSymptoms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ratingBarSymptoms"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_background_gradient"
+        android:text="@string/save_symptoms"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

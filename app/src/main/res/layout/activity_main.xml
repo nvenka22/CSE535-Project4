@@ -1,50 +1,94 @@
-<!-- res/layout/activity_main.xml -->
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+    android:background="@drawable/background_gradient">
 
-    <!-- Symptom Name Input Field -->
-    <EditText
-        android:id="@+id/editTextSymptomName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Symptom Name"
-        android:inputType="text"/>
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="352dp"
+        android:layout_height="529dp"
+        android:layout_centerInParent="true"
+        android:columnCount="2"
+        android:padding="16dp">
 
-    <!-- Symptom Severity Input Field -->
-    <EditText
-        android:id="@+id/editTextSymptomSeverity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Symptom Severity"
-        android:inputType="numberDecimal"/>
+        <Button
+            android:id="@+id/btnMood"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/button_background_gradient"
+            android:gravity="center"
+            android:radius="20dp"
+            android:text="@string/mood"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <!-- Submit Symptom Button -->
-    <Button
-        android:id="@+id/buttonSubmitSymptom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="OnSubmitSymptom"
-        android:text="Submit Symptom"/>
+        <Button
+            android:id="@+id/btnWater"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:layout_toEndOf="@id/btnMood"
+            android:background="@drawable/button_background_gradient"
+            android:gravity="center"
+            android:radius="20dp"
+            android:text="@string/water"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <!-- Get Diet Button -->
-    <Button
-        android:id="@+id/buttonGetDiet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Get Diet"/>
+        <Button
+            android:id="@+id/btnMetrics"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_below="@id/btnMood"
+            android:layout_margin="8dp"
+            android:background="@drawable/button_background_gradient"
+            android:gravity="center"
+            android:radius="20dp"
+            android:text="@string/metrics"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/LoginPage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"/>
+        <Button
+            android:id="@+id/btnSymptoms"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_below="@id/btnWater"
+            android:layout_margin="8dp"
+            android:layout_toEndOf="@id/btnMetrics"
+            android:background="@drawable/button_background_gradient"
+            android:gravity="center"
+            android:radius="20dp"
+            android:text="@string/symptoms"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
+    </GridLayout>
 
-</LinearLayout>
+    <ImageButton
+        android:id="@+id/btnProfile"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/profile1s"
+        tools:ignore="SpeakableTextPresentCheck" />
+</RelativeLayout>

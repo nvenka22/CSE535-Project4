@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
-        Button LoginButton = (Button)findViewById(R.id.LoginPage);
+        Button LoginButton = (Button)findViewById(R.id.loginButton);
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,40 +61,40 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-        Button buttonGetDiet = (Button)findViewById(R.id.buttonGetDiet);
-
-        buttonGetDiet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                DietRecommendationBusinessService bs = new DietRecommendationBusinessService();
-                //The callback here is implemented so that the API call does not interfere with the main thread.
-                //THe callback allows the main thread and the background thread to communicate.
-                bs.getDietRecommendations(new DietRecommendationCallback() {
-                    @Override
-                    public void onComplete(DietResponseWrapper dietResponseWrapper) {
-                        //UI display code would be here.
-                        System.out.println(dietResponseWrapper.getRes());
-                    }
-                });
-            }
-        });
-    }
-
-    public void OnSubmitSymptom(){
-        SymptomName=findViewById(R.id.editTextSymptomName);
-        SymptomSeverity=findViewById(R.id.editTextSymptomSeverity);
-
-        List<Symptoms> symlist= new ArrayList<>();
-        String symName=SymptomName.getText().toString();
-        String symSeverity=SymptomSeverity.getText().toString();
-        Symptoms Sym=new Symptoms();
-        Sym.setSeverity(symSeverity);
-        Sym.setSymptom(symName);
-        symlist.add(Sym);
-
-    }
+//
+//        Button buttonGetDiet = (Button)findViewById(R.id.buttonGetDiet);
+//
+//        buttonGetDiet.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                DietRecommendationBusinessService bs = new DietRecommendationBusinessService();
+//                //The callback here is implemented so that the API call does not interfere with the main thread.
+//                //THe callback allows the main thread and the background thread to communicate.
+//                bs.getDietRecommendations(new DietRecommendationCallback() {
+//                    @Override
+//                    public void onComplete(DietResponseWrapper dietResponseWrapper) {
+//                        //UI display code would be here.
+//                        System.out.println(dietResponseWrapper.getRes());
+//                    }
+//                });
+//            }
+//        });
+//    }
+//
+//    public void OnSubmitSymptom(){
+//        SymptomName=findViewById(R.id.editTextSymptomName);
+//        SymptomSeverity=findViewById(R.id.editTextSymptomSeverity);
+//
+//        List<Symptoms> symlist= new ArrayList<>();
+//        String symName=SymptomName.getText().toString();
+//        String symSeverity=SymptomSeverity.getText().toString();
+//        Symptoms Sym=new Symptoms();
+//        Sym.setSeverity(symSeverity);
+//        Sym.setSymptom(symName);
+//        symlist.add(Sym);
+//
+//    }
 
 
 }
