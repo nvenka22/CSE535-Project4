@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.widget.AppCompatImageButton;
+
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HomePageActivity extends AppCompatActivity {
@@ -57,5 +60,18 @@ public class HomePageActivity extends AppCompatActivity {
 
             }
         });
+
+        AppCompatImageButton ProfileButton = (AppCompatImageButton) findViewById(R.id.btnProfile);
+
+        ProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent int5 = new Intent(getApplicationContext(), ProfileActivity.class);
+                startActivity(int5);
+
+            }
+        });
+
+
     }
 }

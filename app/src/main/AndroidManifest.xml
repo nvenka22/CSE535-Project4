@@ -45,6 +45,10 @@
             android:theme="@style/Theme.AppCompat"
             android:exported="true" />
         <activity
+            android:name=".ProfileActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:exported="true" />
+        <activity
             android:name=".SymptomsActivity"
             android:theme="@style/Theme.AppCompat"
             android:exported="true" />
