@@ -54,11 +54,11 @@ public class RegisterActivity extends AppCompatActivity {
                     diabete="No";
                 }
                 if (isveg.isChecked()) {
-                    isvege= "Yes";
+                    isvege= "Vegetarian";
 
                 }
                 else {
-                    isvege="No";
+                    isvege="Non-Vegetarian";
                 }
 
                 Boolean insert = DB.insertuserData(user,pass,Height,Weight,diabete,isvege);

@@ -147,6 +147,28 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return VNV;
     }
+
+    public String getUserEmail(String username) {
+        SQLiteDatabase db = this.getWritableDatabase();; // Assuming MyDB is your SQLite database instance
+        String VNV = ""; // Default value if the user is not found or height is not available
+
+        try {
+            String query = "SELECT username FROM userdata WHERE username = ?";
+            Cursor cursor = db.rawQuery(query, new String[]{username});
+
+            if (cursor.moveToFirst()) {
+                int VNVIndex = cursor.getColumnIndex("username");
+                VNV = cursor.getString(VNVIndex);
+            }
+
+            cursor.close();
+        } catch (Exception e) {
+            // Handle exceptions, e.g., log the error or show an error message
+            e.printStackTrace();
+        }
+
+        return VNV;
+    }
 }
 
 
