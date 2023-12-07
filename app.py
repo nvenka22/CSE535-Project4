@@ -1,5 +1,4 @@
 from flask import Flask, redirect, render_template, request, session, url_for, jsonify
-import spacy
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -14,6 +13,11 @@ from transformers import AutoTokenizer, AutoModel
 import torch
 import pandas as pd
 from scipy.spatial.distance import cosine
+import os
+
+gunicorn_timeout = os.getenv('GUNICORN_TIMEOUT', '600')  # Default to 120 if not set
+# Use gunicorn_timeout where you need to set the timeout
+
 
 symp_dis_df = pd.read_csv('symp_dis.csv')
 symp_dis_df = shuffle(symp_dis_df,random_state=42)
@@ -26,14 +30,13 @@ s = pd.Series(data)
 s = s.str.strip()
 s = s.values.reshape(symp_dis_df.shape)
 
+tokenizer = AutoTokenizer.from_pretrained("emilyalsentzer/Bio_ClinicalBERT")
+model = AutoModel.from_pretrained("emilyalsentzer/Bio_ClinicalBERT")
+
 df = pd.DataFrame(s, columns=symp_dis_df.columns)
 df = df.fillna(0)
 df1 = pd.read_csv('Symptom-severity.csv')
 df1['Symptom'] = df1['Symptom'].str.replace('_',' ')
-
-
-
-nlp = spacy.load('en_core_sci_lg')
 
 app = Flask(__name__)
 
@@ -41,11 +44,17 @@ app = Flask(__name__)
 def home():
     if request.method == 'POST':
         json_data = request.get_json()
-        print(json_data['symptoms'])
+        print(json_data['healthData'])
         symps = json_data['symptoms']
-        tokenizer = AutoTokenizer.from_pretrained("emilyalsentzer/Bio_ClinicalBERT")
-        model = AutoModel.from_pretrained("emilyalsentzer/Bio_ClinicalBERT")
 
+        healthData = json_data['healthData']
+        # Example usage
+        user_age = healthData['age']
+        user_weight = healthData['weight']
+        user_heart_rate = healthData['heartrate']
+        print(user_age, user_weight, user_heart_rate)
+        
+        
         def get_embedding(text):
             inputs = tokenizer(text, return_tensors="pt", padding=True, truncation=True, max_length=512)
             with torch.no_grad():
@@ -174,18 +183,20 @@ def home():
             # Remove duplicates and return the list of recommended diets
             return list(set(diets))
 
-        # Example usage
-        user_age = 45
-        user_weight = 75
-        user_heart_rate = 85
+        
 
         diet_recommendations = recommend_diet(user_age, user_weight, user_heart_rate)
         print(f'Recommended diets: {diet_recommendations}')
         filtered_df = df[df['Diet'].apply(lambda diets: any(diet in diets for diet in diet_recommendations))].nlargest(3, 'SimScore')
+        # Convert DataFrame to JSON, then parse it back to a Python object
+        response_data = filtered_df.to_json(orient='records', lines=False)
+        response_data = json.loads(response_data)  # Parse JSON string to Python object
 
     # return json.dumps(filtered_df.to_json('Testflask.json', orient='records', lines=True))
-    return json.dumps(filtered_df.to_json(orient='records', lines=True))
+    # return json.dumps(filtered_df.to_json(orient='records', lines=True))
+    return jsonify(response_data)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
+
     
