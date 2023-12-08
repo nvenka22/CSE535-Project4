@@ -1,0 +1,12 @@
+flask
+pandas
+numpy
+matplotlib
+scikit-learn
+seaborn
+joblib
+scipy
+gunicorn
+gevent
+
+
