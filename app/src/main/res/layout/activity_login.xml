@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/background_gradient"
+    tools:context=".LoginActivity">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/diet_Pro"
+        android:src="@drawable/icon" />
+
+    <!-- Username TextView -->
+    <TextView
+        android:id="@+id/usernameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logoImageView"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/textview_background_gradient"
+        android:textColor="#333333"
+        android:text="@string/username"
+        android:typeface="sans"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- Username EditText -->
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usernameLabel"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background_gradient"
+        android:hint="@string/enter_your_username"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#674B88"
+        android:textColorHint="#674B88"
+        android:textSize="24sp" />
+
+    <!-- Password TextView -->
+    <TextView
+        android:id="@+id/passwordLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usernameEditText"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:background="@drawable/textview_background_gradient"
+        android:text="@string/password"
+        android:textColor="#333333"
+        android:textSize="20sp"
+        android:typeface="sans"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- Password EditText -->
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordLabel"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background_gradient"
+        android:hint="@string/enter_your_password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#674B88"
+        android:textColorHint="#674B88"
+        android:textSize="24sp" />
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="147dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/passwordEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background_gradient"
+        android:text="@string/login"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/signUp"
+        android:layout_width="147dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background_gradient"
+        android:text="Sign Up"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+
+
+</RelativeLayout>

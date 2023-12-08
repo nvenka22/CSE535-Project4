@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="symptoms_array">
+        <item>Nausea</item>
+        <item>Sore Throat</item>
+        <item>Muscle Ache</item>
+        <item>Cough</item>
+        <item>Shortness of Breath</item>
+        <item>Body Pains</item>
+        <item>Joint Pains</item>
+        <item>Headache</item>
+        <item>Diarrhea</item>
+        <item>Chest Pain</item>
+        <item>Swollen Blood Vessels</item>
+        <item>High Fatigue</item>
+        <item>Vomiting</item>
+        <!-- Add more symptoms as needed -->
+    </string-array>
+</resources>

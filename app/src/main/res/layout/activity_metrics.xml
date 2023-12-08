@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background4_gradient">
+
+    <LinearLayout
+        android:id="@+id/layoutHeartRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/background_gradient">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/heart_rate"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:background="@drawable/textview_background_gradient"/>
+
+        <EditText
+            android:id="@+id/editHeartRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/heart_rate"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:background="@drawable/edittext_background_gradient"/>
+
+        <Button
+            android:id="@+id/btnCalculateHeartRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_background_gradient"
+            android:text="@string/calculate"
+            android:textColor="#37474F" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutRespiratoryRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutHeartRate"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/background_gradient">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/respiratory_rate"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:background="@drawable/textview_background_gradient"/>
+
+        <EditText
+            android:id="@+id/editRespiratoryRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/respiratory_rate"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:background="@drawable/edittext_background_gradient"/>
+
+        <Button
+            android:id="@+id/btnCalculateRespiratoryRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_background_gradient"
+            android:text="@string/calculate"
+            android:textColor="#37474F" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSaveMetrics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutRespiratoryRate"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_gradient"
+        android:text="@string/save_metrics"
+        android:textColor="#37474F" />
+
+</RelativeLayout>
