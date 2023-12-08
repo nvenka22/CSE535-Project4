@@ -1,20 +1,17 @@
-Project 4- Mobile Computing
+Project 5- Mobile Computing
 
-Overview: The project is an individual contribution to the final project of the course. This repository consits of the Diet predection based on user given symptoms, heart rate, respiratory rate and other biological information as well. The recommendation system depends upon technologies like Multi Layer Perceptron, Clinical Bert, Transformers,  similarity scores, and Kmeans Clustering algorithms. 
+DietPro: A Context-Aware Diet Recommendation System
 
-The project flow is 
-1) Run the Symptoms_disease_scraper.ipynb notebook. Data Collection (using tools like BS4 to scrape the data of various symptoms and their corresponding diseases reported by users) 
-2) run the processing.ipynb notebook. Utilzing the data to preprocess, feature engineering using Random Forest Estimator, and finally sending the data with Diseses, and the user reported symptoms (top 10 based on the statistical significance provided by Random Forest Estimator) based on the importance of each symptom given by the symptom severity scoured from CDC.gov.
-3) The conditions on which the diet recommendation based on the user biological data is understood from the KMeans clustering.
-4) Run the Symptom_Mc.ipynb notebook: Building the Multi Layer Perceptron model that will predict the "possbile" diseases based on the user symptoms. 
-5) (continuation of 3rd step) We then use ClinicalBert, Embedding to find the most related diseases to the one predicted by the model, and recommend multiple food items based on the closest diseases to the symptoms and user's biological data.
-6) Run the flask app in Vscode or any editor of choice. Open Postman to send symptoms json in the raw, and wait for the response. The flask app when run on a local machine takes ~2 mins to return the final diet recommendation json which is then utilized by the backend to process and forward it to the UI where it is further processed.
+Overview: Project 5 is an integration of individual contributions from Project 4. The application is designed in Android Studio, and for testing purposes, we have Containerized the Core Recommendation Engine and its corresponding Flask application. DietPro represents a groundbreaking advancement in personalized nutrition and health management, integrating a suite of cutting-edge technologies to deliver user-specific diet recommendations. At its core, DietPro employs a custom-built heart rate calculator using the flash of the mobile, accelerometer to monitor physical activity levels, providing valuable context for dietary needs based on daily movement patterns. The system harnesses the power of Clinical BERT and Transformer models, state-of-the-art in natural language processing, to interpret complex health data and user inputs. This sophisticated approach allows DietPro to understand and analyze user-specific health symptoms and feedback more accurately.
 
-INSTRUCTIONS
+Instructions
+1) Clone the Application from GitHub and open it in Android Studio. Run the Flask App in the background. 
+2) Run the application in an Emulator, and once opened enter the User information like Age, height, weight, and other physiological information.
+3) Use the Heart Rate Calculator and Respiratory Rate Calculator in the application, and also give the symptoms and the ratings for those symptoms. 
+4) The data will then be sent to the Flask route automatically which has a loaded pre-trained MLP Classifier and Clinical BERT. 
+5) Wait for some time, and the application will send the recommended diets based on the user's health conditions in the format of 'breakfast', 'lunch', and 'dinner'.
+6) The User-Specific Data is stored in the Backend, and every time the user gives his information, the model generates the diets based on his contextual health conditions. 
 
-1) clone the repository and run the flask app ensuring the below libraries are present in the machine.
-2) The Flask application will automatically load the '.joblib' model that is being created during the machine learning modelling. The ML model is present in the 'mlp_classifier.joblib', which is then directly used by the Flask App to predict the dieases and then use the closest possible medical conditions based on Clinical BERT to recommend the diet. 
-3) Open Postman/ Hit the flask route with 'Symptoms' Json, and The Flask app will return the Json Data of the diets we recommend based on symptoms and biological data. 
 
 Libraries needed (with their corresponding codes) are: 
 
