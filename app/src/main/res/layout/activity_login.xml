@@ -99,18 +99,19 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
-    <!-- New User Prompt -->
-    <TextView
-        android:id="@+id/newUserPrompt"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/signUp"
+        android:layout_width="147dp"
         android:layout_height="48dp"
-        android:layout_below="@id/loginButton"
+        android:layout_below="@+id/loginButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:onClick="onSignUpClicked"
-        android:text="@string/new_user_sign_up"
+        android:background="@drawable/button_background_gradient"
+        android:text="Sign Up"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark" />
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+
 
 </RelativeLayout>

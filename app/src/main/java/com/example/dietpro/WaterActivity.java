@@ -10,27 +10,23 @@ import android.widget.EditText;
 
 import com.example.dietpro.bs.SymptomsAggregator;
 
-public class ProfileActivity extends AppCompatActivity {
+public class WaterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-
-        Button BackButton = findViewById(R.id.btnBack);
-        BackButton.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_water);
+        Button profileButton = findViewById(R.id.btnSave);
+        profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText weightInfo  = findViewById(R.id.editTextWeight);
-                Integer weight = Integer.parseInt(weightInfo.getText().toString());
 
-                EditText ageInfo = findViewById(R.id.editTextAge);
-                Integer age = Integer.parseInt(ageInfo.getText().toString());
-
+                EditText waterIntake  = findViewById(R.id.editLitersDrank);
+                String waterConsumption = waterIntake.getText().toString();
                 SymptomsAggregator aggregator = (SymptomsAggregator) getIntent().getSerializableExtra("symptomAggregator");
-                aggregator.setPersonalHealthData(weight,age);
+                aggregator.setWaterIntake(waterConsumption);
                 // Handle profile button click, for now, navigate to ProfileActivity
-                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                Intent intent = new Intent(WaterActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

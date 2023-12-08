@@ -46,4 +46,18 @@
     <string name="name_john_doe">Name: John Doe</string>
     <string name="profile_details">Profile Details</string>
     <string name="back">Back</string>
+    <string name="enter_age">Enter Age:</string>
+    <string name="age">Age:</string>
+    <string name="enter_height">Enter Height</string>
+    <string name="enter_weight">Enter Weight</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="home">Home</string>
+    <string name="nutritional_facts_for_dinner_go_here">Nutritional facts for dinner go here...</string>
+    <string name="dinner">Dinner</string>
+    <string name="nutritional_facts_for_lunch_go_here">Nutritional facts for lunch go here...</string>
+    <string name="lunch">Lunch</string>
+    <string name="nutritional_facts_for_breakfast_go_here">Nutritional facts for breakfast go here...</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="recommendations">Recommendations</string>
 </resources>
